@@ -52,8 +52,57 @@
 	
 	var stub = 'Testing js';
 	
-	var jQuery = __webpack_require__(1);
+	var $ = __webpack_require__(1);
 	var bootstrap = __webpack_require__(3);
+	var getURLPromise = __webpack_require__(19);
+	
+	$(function () {
+	
+	    // $.get('/data', function(data) {
+	    //     console.log(data);
+	    //
+	    // });
+	
+	    // building table for on init load
+	    var initializeTable = {
+	        getInitData: function getInitData() {
+	            // $.ajax({
+	            //     url: '/data',
+	            //     dataType: 'json',
+	            //     method: 'get',
+	            //     success: (data) => {
+	            //         // console.log(data);
+	            //         initializeTable.buildInitTable(data);
+	            //     },
+	            //     error: (error) => {
+	            //         console.log(error)
+	            //     }
+	            // });
+	            getURLPromise('/data').then(function (response) {
+	                // console.log(response);
+	                initializeTable.buildInitTable(response);
+	            }, function (error) {
+	                console.error("Failed!", error);
+	            }); // end getURLPromise
+	        },
+	        buildInitTable: function buildInitTable(data) {
+	            // console.log(JSON.parse(data));
+	            // need to parse the data before looping through it
+	            var parsedData = JSON.parse(data);
+	
+	            // get table id and init the table string
+	            var initBlocksTable = document.getElementById('magicTable');
+	            var table = '';
+	            parsedData.blocks.forEach(function (block) {
+	                console.log(block);
+	
+	                table += '<tr>\n                        <td>\n                            ' + block.name + '\n                        </td>\n                    </tr>\n                ';
+	            });
+	            initBlocksTable.innerHTML = table;
+	        }
+	    }; // end initializeTable
+	    initializeTable.getInitData();
+	});
 
 /***/ },
 /* 1 */
@@ -3609,6 +3658,51 @@
 	    });
 	  });
 	}(jQuery);
+
+/***/ },
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	/**
+	 * Created by Nomad_Mystic on 8/5/2016.
+	 */
+	
+	var getURLPromise = function getURLPromise(url) {
+	    // Return a new promise.
+	    return new Promise(function (resolve, reject) {
+	        // Do the usual XHR stuff
+	        var req = new XMLHttpRequest();
+	        req.open('GET', url);
+	
+	        req.onload = function () {
+	            // This is called even on 404 etc
+	            // so check the status
+	            if (req.status == 200) {
+	                // Resolve the promise with the response text
+	                resolve(req.response);
+	            } else {
+	                // Otherwise reject with the status text
+	                // which will hopefully be a meaningful error
+	                reject(Error(req.statusText));
+	            }
+	        };
+	
+	        // Handle network errors
+	        req.onerror = function () {
+	            reject(Error("Network Error"));
+	        };
+	
+	        // Make the request
+	        req.send();
+	    });
+	};
+	
+	module.exports = getURLPromise;
 
 /***/ }
 /******/ ]);

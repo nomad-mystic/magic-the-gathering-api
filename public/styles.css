@@ -1,7 +1,22 @@
-
-
-
 body {
     background: #35393b;
+}
+h1 {
+    color: #c0b9b9;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    color: #c0b9b9;
+}
+
+
+#searchForCards {
+
+}
+
+#displayCardsAndSets {
+    background: #101414;
+    border-radius: 4px;
 }
 /*# sourceMappingURL=styles.css.map*/

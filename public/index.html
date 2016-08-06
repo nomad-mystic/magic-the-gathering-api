@@ -11,20 +11,19 @@
 </head>
 <body>
 
-<button id="testingAPICall">API CALL</button>
-<section class="wrapper">
+<!--<button id="testingAPICall">API CALL</button>-->
+<section class="wrapper container">
+    <h1 class="websiteHeader">Magic the Gathering API</h1>
     <section id="searchForCards">
         <article>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <fieldset>
-                            <input id="inputBlock" type="text" placeholder="Please enter a magic block..." class="form-control">
-                        </fieldset>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <button id="submitBlock" class="btn btn-default">Search for Block</button>
-                    </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                    <fieldset>
+                        <input id="inputBlock" type="text" placeholder="Please enter a magic block..." class="form-control">
+                    </fieldset>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <button id="submitBlock" class="btn btn-default center-block">Search for Block</button>
                 </div>
             </div>
         </article>
@@ -32,12 +31,10 @@
 
     <section id="displayCardsAndSets">
         <article>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h2 id="tableHeader">Search from these types to view chosen block.</h2>
-                        <table class="table table-hover" id="magicTable"></table>
-                    </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h2 id="tableHeader">Search from these types to view chosen block.</h2>
+                    <table class="table table-hover" id="magicTable"></table>
                 </div>
             </div>
         </article>
