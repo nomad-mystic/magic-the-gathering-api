@@ -30,14 +30,24 @@ describe('Application', function() {
             chai.request('http://localhost:3000')
                 .get('/')
                 .end(function(err, res) {
-
+                    chai.expect(err).to.be.equal(null);
                     chai.expect(res).to.have.status(200);
-
                     // res.should.have.status(200);
-                    console.log(res);
+                    // console.log(res);
                     done();
                 });
             // done();
+        });
+
+        it('/ should return HTML', function(done) {
+           chai.request('http://localhost:3000')
+               .get('/')
+               .end(function(err, res) {
+                   chai.expect(err).to.be.equal(null);
+                   // chai.expect(res.request.res.text).to.be.html;
+                   console.log(res.request.res.text);
+                   done();
+               });
         });
 
         it('Every other directory should return 404', function(done) {

@@ -6,5 +6,9 @@
 
 var stub = 'Testing js';
 
+var jQuery = require('jQuery');
+var bootstrap = require('bootstrap');
+
+
 
 

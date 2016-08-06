@@ -3,14 +3,22 @@
  */
 
 
-
+// application imports
 var express = require('express');
 var app = express();
+var path = require('path');
+
+// load static files from the public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 
 app.get('/', function(req, res) {
     console.log(`This should return status 200: ${res.statusCode}`);
 
-    res.send('This connects to the root page');
+    // send the static HTML for initialization
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 var server = app.listen(3000, function() {
