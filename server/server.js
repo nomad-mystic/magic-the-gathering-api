@@ -6,14 +6,8 @@
 
 // server application with routes
 var server = function() {
-    var express = require('express');
-    var app = express();
 
 
-
-    app.listen(3000, function() {
-       console.log('Server running on 3000');
-    });
 };
 
 // exporting to app.js in root
