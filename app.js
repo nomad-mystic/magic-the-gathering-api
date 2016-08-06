@@ -11,9 +11,6 @@ var path = require('path');
 // load static files from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
 app.get('/', function(req, res) {
     console.log(`This should return status 200: ${res.statusCode}`);
 
