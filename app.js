@@ -2,7 +2,7 @@
  * Created by Nomad_Mystic on 8/5/2016.
  */
 
-
+require('babel-polyfill');
 // application imports from libs
 var express = require('express');
 var app = express();
@@ -14,8 +14,9 @@ var getPromise = require('./server/utils/getPromise');
 var readJSON = require('./server/utils/readJSON');
 var magicData = require('./data/magicData.json');
 
+
 // load static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.static(path.join(__dirname, 'data')));
 
 // for the / route
@@ -23,7 +24,7 @@ app.get('/', function(req, res) {
     console.log(`This should return status 200: ${res.statusCode}`);
 
     // send the static HTML for initialization
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/build/index.html');
 });
 
 app.get('/data', function(req, res) {

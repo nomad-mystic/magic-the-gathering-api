@@ -3,7 +3,7 @@
  */
 
 // add polyfill to allow ES6 in tests
-// import 'babel-polyfill';
+require('babel-polyfill');
 
 
 var mocha = require('mocha');
@@ -14,7 +14,7 @@ var chaiHTTP = require('chai-http');
 
 // grab objects from Chai class
 var should = chai.should();
-var expect = chai.expect();
+var expect = chai.expect;
 
 
 // add chai-http module to Chai class
@@ -44,8 +44,9 @@ describe('Application', function() {
                .get('/')
                .end(function(err, res) {
                    chai.expect(err).to.be.equal(null);
-                   // chai.expect(res.request.res.text).to.be.html;
-                   console.log(res.request.res.text);
+                   // chai.expect(res).to.be.equal('object');
+                   // this is the HTML for index.html
+                   // console.log(res.request.res.text);
                    done();
                });
         });
