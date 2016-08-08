@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.css"],"names":[],"mappings":"AAAA;EACE,UAAU,EAAE;;AAEd;EACE,UAAU,EAAE;;AAEd;EACE,qBAAc;EAAd,qBAAc;EAAd,cAAc,EAAE","file":"main.css","sourcesContent":["body {\n  margin: 0; }\n\nh1 {\n  margin: 0; }\n\n.container {\n  display: flex; }\n"],"sourceRoot":"/source/"}

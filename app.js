@@ -30,6 +30,8 @@ app.get('/data', function(req, res) {
     res.json(magicData);
 });
 
+
+// this is not part of the program yet 8-8-2015
 app.get('/cards', function(req, res) {
     // send JSON to front end
     console.log(res.statusCode);
