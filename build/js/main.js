@@ -40,9 +40,8 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60,14 +59,13 @@
 
 	// let $ = require('jQuery');
 	// let bootstrap = require('bootstrap');
-	var getURLPromise = __webpack_require__(16);
+	var getURLPromise = __webpack_require__(3);
 
 	// builds table of local JSON file on init
 	(0, _landingPage.landingPage)();
 
 /***/ },
-
-/***/ 1:
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87,7 +85,7 @@
 	    // building table for on init load
 
 	    var getInitData = function getInitData() {
-	        (0, _getPromise2.default)('/data').then(function (response) {
+	        (0, _getPromise2.default)('/allSets').then(function (response) {
 	            // console.log(response);
 	            if (response) {
 	                buildInitTable(response);
@@ -130,8 +128,7 @@
 	};
 
 /***/ },
-
-/***/ 2:
+/* 2 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -173,8 +170,7 @@
 	module.exports = getURLPromise;
 
 /***/ },
-
-/***/ 16:
+/* 3 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -188,9 +184,9 @@
 	    return new Promise(function (resolve, reject) {
 	        // Do the usual XHR stuff
 	        var req = new XMLHttpRequest();
-	        req.open('GET', url);
+	        req.open('GET', url, true);
 
-	        req.onload = function () {
+	        req.onLoad = function () {
 	            // This is called even on 404 etc
 	            // so check the status
 	            if (req.status == 200) {
@@ -204,7 +200,7 @@
 	        };
 
 	        // Handle network errors
-	        req.onerror = function () {
+	        req.onError = function () {
 	            reject(Error("Network Error"));
 	        };
 
@@ -216,5 +212,4 @@
 	module.exports = getURLPromise;
 
 /***/ }
-
-/******/ });
+/******/ ]);
