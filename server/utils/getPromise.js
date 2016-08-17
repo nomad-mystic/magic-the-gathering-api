@@ -9,7 +9,7 @@ var getURLPromise = function(url) {
     return new Promise(function (resolve, reject) {
         // Do the usual XHR stuff
         var req = new XMLHttpRequest();
-        req.open('GET', url);
+        req.open('GET', url, true);
 
         req.onload = function () {
             // This is called even on 404 etc

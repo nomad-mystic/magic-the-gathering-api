@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var http = require('http');
+var https = require('https');
 
 // custom imports
 var getPromise = require('./server/utils/getPromise');
@@ -33,14 +34,14 @@ app.get('/data', function(req, res) {
 
 
 // this is not part of the program yet 8-8-2015
-app.get('/cards', function(req, res) {
+app.get('/card', function(req, res) {
     // send JSON to front end
-    console.log(res.statusCode);
-    http.get('./data/magicData.json', function(initObject) {
+    console.log('server' + res.statusCode);
+    var defaultQuery = 'https://api.magicthegathering.io/v1/cards?page=1&pageSize=2';
+    https.get(defaultQuery, function(initObject) {
         console.log(`Got Response statusCode: ${initObject.statusCode}`);
         console.log(`Got Response headers: ${initObject.headers}`);
         // console.log(`Got Response whole object: ${initObject}`);
-
         var string = '';
 
         initObject.on('data', function(data) {
@@ -49,7 +50,7 @@ app.get('/cards', function(req, res) {
 
         initObject.on('end', function() {
             // console.log(string);
-            // res.send(string);
+            res.send(string);
         });
 
     }).on('error', function(error) {
