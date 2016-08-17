@@ -54,7 +54,13 @@ var extractTextPlugin = require("extract-text-webpack-plugin");
 // };
 
 module.exports = {
-    entry: ['babel-polyfill', './test/'],
+    entry: {
+        main: './src/js/main.js'
+    },
+    output: {
+        path: path.resolve(__dirname, 'build/js/'),
+        filename: "[name].js"
+    },
     module: {
         loaders: [
             {

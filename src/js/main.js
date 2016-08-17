@@ -6,16 +6,16 @@
 
 
 
-require('babel-polyfill');
+// require('babel-polyfill');
 
 
-var stub = 'Testing js';
+let stub = 'Testing js';
 
-var $ = require('jQuery');
-var bootstrap = require('bootstrap');
-var getURLPromise = require('../../server/utils/getPromise');
+// let $ = require('jQuery');
+// let bootstrap = require('bootstrap');
+let getURLPromise = require('../../server/utils/getPromise');
 
-import {landingPage} from 'landingPage';
+import {landingPage} from '../components/landingPage';
 
 // builds table of local JSON file on init
 landingPage();

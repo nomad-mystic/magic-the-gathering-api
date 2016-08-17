@@ -1,77 +1,220 @@
-'use strict';
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.testing = exports.landingPage = undefined;
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-var _getPromise = require('../../build/utils/getPromise');
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-var _getPromise2 = _interopRequireDefault(_getPromise);
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-var landingPage = exports.landingPage = function landingPage() {
-    // building table for on init load
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 
-    var getInitData = function getInitData() {
-        (0, _getPromise2.default)('/data').then(function (response) {
-            // console.log(response);
-            if (response) {
-                buildInitTable(response);
-            } else {
-                return false;
-            }
-        }, function (error) {
-            console.error("Failed!", error);
-        }); // end getURLPromise
-    };
-
-    var buildInitTable = function buildInitTable(data) {
-        // console.log(JSON.parse(data));
-        // need to parse the data before looping through it
-        var parsedData = JSON.parse(data);
-
-        if (parsedData) {
-            // get table id and init the table string
-            var initBlocksTable = document.getElementById('magicTable');
-            var table = '';
-            parsedData.blocks.forEach(function (block) {
-                console.log(block);
-
-                table += '<tr>\n                            <td>\n                                ' + block.name + '\n                            </td>\n                        </tr>\n                        ';
-            });
-            initBlocksTable.innerHTML = table;
-        }
-    };
-
-    getInitData();
-}; // end landingPage();
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
 
 
-/**
- * Created by Nomad_Mystic on 8/8/2016.
- */
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
 
-var testing = exports.testing = function testing(number) {
-    return number - 1;
-};
-'use strict';
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
 
-var _landingPage = require('landingPage');
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
 
-/**
- * Created by Nomad_Mystic on 8/5/2016.
- */
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
 
-require('babel-polyfill');
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
 
-var stub = 'Testing js';
+	'use strict';
 
-var $ = require('jQuery');
-var bootstrap = require('bootstrap');
-var getURLPromise = require('../../server/utils/getPromise');
+	var _landingPage = __webpack_require__(1);
 
-// builds table of local JSON file on init
-(0, _landingPage.landingPage)();
-//# sourceMappingURL=main.js.map
+	/**
+	 * Created by Nomad_Mystic on 8/5/2016.
+	 */
+
+	// require('babel-polyfill');
+
+
+	var stub = 'Testing js';
+
+	// let $ = require('jQuery');
+	// let bootstrap = require('bootstrap');
+	var getURLPromise = __webpack_require__(16);
+
+	// builds table of local JSON file on init
+	(0, _landingPage.landingPage)();
+
+/***/ },
+
+/***/ 1:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.testing = exports.landingPage = undefined;
+
+	var _getPromise = __webpack_require__(2);
+
+	var _getPromise2 = _interopRequireDefault(_getPromise);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var landingPage = exports.landingPage = function landingPage() {
+	    // building table for on init load
+
+	    var getInitData = function getInitData() {
+	        (0, _getPromise2.default)('/data').then(function (response) {
+	            // console.log(response);
+	            if (response) {
+	                buildInitTable(response);
+	            } else {
+	                return false;
+	            }
+	        }, function (error) {
+	            console.error("Failed!", error);
+	        }); // end getURLPromise
+	    };
+
+	    var buildInitTable = function buildInitTable(data) {
+	        // console.log(JSON.parse(data));
+	        // need to parse the data before looping through it
+	        var parsedData = JSON.parse(data);
+
+	        if (parsedData) {
+	            // get table id and init the table string
+	            var initBlocksTable = document.getElementById('magicTable');
+	            var table = '';
+	            parsedData.blocks.forEach(function (block) {
+	                console.log(block);
+
+	                table += '<tr>\n                            <td>\n                                ' + block.name + '\n                            </td>\n                        </tr>\n                        ';
+	            });
+	            initBlocksTable.innerHTML = table;
+	        }
+	    };
+
+	    getInitData();
+	}; // end landingPage();
+
+
+	/**
+	 * Created by Nomad_Mystic on 8/8/2016.
+	 */
+
+	var testing = exports.testing = function testing(number) {
+	    return number - 1;
+	};
+
+/***/ },
+
+/***/ 2:
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Created by Nomad_Mystic on 8/5/2016.
+	 */
+
+	var getURLPromise = function getURLPromise(url) {
+	    // Return a new promise.
+	    return new Promise(function (resolve, reject) {
+	        // Do the usual XHR stuff
+	        var req = new XMLHttpRequest();
+	        req.open('GET', url);
+
+	        req.onload = function () {
+	            // This is called even on 404 etc
+	            // so check the status
+	            if (req.status == 200) {
+	                // Resolve the promise with the response text
+	                resolve(req.response);
+	            } else {
+	                // Otherwise reject with the status text
+	                // which will hopefully be a meaningful error
+	                reject(Error(req.statusText));
+	            }
+	        };
+
+	        // Handle network errors
+	        req.onerror = function () {
+	            reject(Error("Network Error"));
+	        };
+
+	        // Make the request
+	        req.send();
+	    });
+	};
+
+	module.exports = getURLPromise;
+
+/***/ },
+
+/***/ 16:
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Created by Nomad_Mystic on 8/5/2016.
+	 */
+
+	var getURLPromise = function getURLPromise(url) {
+	    // Return a new promise.
+	    return new Promise(function (resolve, reject) {
+	        // Do the usual XHR stuff
+	        var req = new XMLHttpRequest();
+	        req.open('GET', url);
+
+	        req.onload = function () {
+	            // This is called even on 404 etc
+	            // so check the status
+	            if (req.status == 200) {
+	                // Resolve the promise with the response text
+	                resolve(req.response);
+	            } else {
+	                // Otherwise reject with the status text
+	                // which will hopefully be a meaningful error
+	                reject(Error(req.statusText));
+	            }
+	        };
+
+	        // Handle network errors
+	        req.onerror = function () {
+	            reject(Error("Network Error"));
+	        };
+
+	        // Make the request
+	        req.send();
+	    });
+	};
+
+	module.exports = getURLPromise;
+
+/***/ }
+
+/******/ });

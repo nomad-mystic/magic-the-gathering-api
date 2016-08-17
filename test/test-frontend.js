@@ -11,7 +11,7 @@ var http = require('chai-http');
 var expect = chai.expect;
 var should = chai.should();
 
-import {landingPage, testing} from '../src/js/landingPage';
+import {landingPage, testing} from '../src/components/landingPage';
 
 
 describe('front-end tests', () => {
@@ -20,7 +20,7 @@ describe('front-end tests', () => {
     describe('should pass for landing page', () => {
         // base tests for front-end
         it('File should exist', () => {
-            chai.expect(landingPage).exist();
+            chai.expect(landingPage).exist;
         });
 
         it('it will return a number -1', () => {
