@@ -1,8 +1,7 @@
 {
-    "name": "start",
     "blocks": [
         {
-            "name": "Limited edition",
+            "name": "Limited Edition",
             "block": [
                 {
                     "name": "Alpha"
@@ -23,7 +22,7 @@
         },
         {
             "name": "Core Sets",
-            "block": [
+            "sets": [
                 {
                     "name": "Revised"
                 },
@@ -70,7 +69,7 @@
         },
         {
             "name": "Early Expansions",
-            "block": [
+            "sets": [
                 {
                     "name": "Arabian Nights"
                 },
@@ -89,8 +88,8 @@
             ]
         },
         {
-            "name": "Ice Age Block",
-            "block": [
+            "name": "Ice Age sets",
+            "sets": [
                 {
                     "name": "Ice Age"
                 },
@@ -106,8 +105,8 @@
             ]
         },
         {
-            "name": "Mirage Block",
-            "block": [
+            "name": "Mirage sets",
+            "sets": [
                 {
                     "name": "Mirage"
                 },
@@ -120,8 +119,8 @@
             ]
         },
         {
-            "name": "Tempest Block",
-            "block": [
+            "name": "Tempest sets",
+            "sets": [
                 {
                     "name": "Tempest"
                 },
@@ -134,8 +133,8 @@
             ]
         },
         {
-            "name": "Urza's Block",
-            "block": [
+            "name": "Urza's sets",
+            "sets": [
                 {
                     "name": "Urza's Saga"
                 },
@@ -148,8 +147,8 @@
             ]
         },
         {
-            "name": "Masques Block",
-            "block": [
+            "name": "Masques sets",
+            "sets": [
                 {
                     "name": "Mercadian Masques"
                 },
@@ -162,8 +161,8 @@
             ]
         },
         {
-            "name": "Invasion Block",
-            "block": [
+            "name": "Invasion sets",
+            "sets": [
                 {
                     "name": "Invasion"
                 },
@@ -176,8 +175,8 @@
             ]
         },
         {
-            "name": "Odyssey Block",
-            "block": [
+            "name": "Odyssey sets",
+            "sets": [
                 {
                     "name": "Odyssey"
                 },
@@ -190,8 +189,8 @@
             ]
         },
         {
-            "name": "Onslaught Block",
-            "block": [
+            "name": "Onslaught sets",
+            "sets": [
                 {
                     "name": "Onslaught"
                 },
@@ -204,8 +203,8 @@
             ]
         },
         {
-            "name": "Mirrodin Block",
-            "block": [
+            "name": "Mirrodin sets",
+            "sets": [
                 {
                     "name": "Mirrodin"
                 },
@@ -218,8 +217,8 @@
             ]
         },
         {
-            "name": "Kamigawa Block",
-            "block": [
+            "name": "Kamigawa sets",
+            "sets": [
                 {
                     "name": "Champoins of Kamigawa"
                 },
@@ -232,8 +231,8 @@
             ]
         },
         {
-            "name": "Ravnica Block",
-            "block": [
+            "name": "Ravnica sets",
+            "sets": [
                 {
                     "name": "Ravnica: City Of Guilds"
                 },
@@ -246,8 +245,8 @@
             ]
         },
         {
-            "name": "Time Spiral Block",
-            "block": [
+            "name": "Time Spiral sets",
+            "sets": [
                 {
                     "name": "Time Spiral"
                 },
@@ -260,8 +259,8 @@
             ]
         },
         {
-            "name": "Lorwyn-Shadowmoor Block",
-            "block": [
+            "name": "Lorwyn-Shadowmoor sets",
+            "sets": [
                 {
                     "name": "Lorwyn"
                 },
@@ -278,7 +277,7 @@
         },
         {
             "name": "Shards of Alara",
-            "block": [
+            "sets": [
                 {
                     "name": "Shards of Alara"
                 },
@@ -291,8 +290,8 @@
             ]
         },
         {
-            "name": "Zendikar Block",
-            "block": [
+            "name": "Zendikar sets",
+            "sets": [
                 {
                     "name": "Zendikar"
                 },

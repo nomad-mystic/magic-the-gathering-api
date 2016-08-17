@@ -3,6 +3,7 @@
  */
 
 import getURLPromise from '../../build/utils/getPromise';
+let Mustache = require('mustache');
 
 export let landingPage = () => {
     // building table for on init load
@@ -24,34 +25,21 @@ export let landingPage = () => {
         let buildInitTable = (data) => {
             // console.log(JSON.parse(data));
             // need to parse the data before looping through it
-            var parsedData = JSON.parse(data);
-
-            if (parsedData) {
+            var allSets = JSON.parse(data);
+            console.log(allSets);
+            if (allSets) {
                 // get table id and init the table string
-                var initBlocksTable = document.getElementById('magicTable');
-                var table = '';
-                parsedData.blocks.forEach((block) => {
-                    console.log(block);
-
-                    table +=
-                        `<tr>
-                            <td>
-                                ${block.name}
-                            </td>
-                        </tr>
-                        `
-                });
-                initBlocksTable.innerHTML = table;
+                let template = document.getElementById('templates').innerHTML;
+                Mustache.parse(template);
+                let render = Mustache.render(template, allSets);
+                let templateResultsDiv = document.getElementById('templateResults');
+                templateResultsDiv.innerHTML = render;
+                // console.log(render);
             }
         };
 
     getInitData();
 }; // end landingPage();
-
-
-export let testing = (number) => {
-    return number - 1;
-};
 
 
 

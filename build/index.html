@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Search the Magic the Gathering API</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<h1>Testing HTML</h1>
-<table id="magicTable"></table>
+
+<section>
+    <main>
+        <article>
+            <div id="templateResults"></div>
+        </article>
+    </main>
+</section>
+
+<script id="templates" type="text/template">
+    <h1>Magic the Gathering Card Search API</h1>
+    <table>
+        <tbody>
+            {{#blocks}}
+                <tr>
+                    <td>{{name}}</td>
+                </tr>
+            {{/blocks}}
+        </tbody>
+    </table>
+</script>
+
 
 
 <script src="js/main.js"></script>
