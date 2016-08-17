@@ -13,7 +13,7 @@ var https = require('https');
 // custom imports
 var getPromise = require('./server/utils/getPromise');
 var readJSON = require('./server/utils/readJSON');
-var magicData = require('./data/magicData.json');
+var magicData = require('./data/allSets.json');
 
 
 // load static files from the public folder
@@ -28,7 +28,8 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
 
-app.get('/data', function(req, res) {
+app.get('/allSets', function(req, res) {
+    // console.log(res);
     res.json(magicData);
 });
 
@@ -37,27 +38,27 @@ app.get('/data', function(req, res) {
 app.get('/card', function(req, res) {
     // send JSON to front end
     console.log('server' + res.statusCode);
-    var defaultQuery = 'https://api.magicthegathering.io/v1/cards?page=1&pageSize=2';
-    https.get(defaultQuery, function(initObject) {
-        console.log(`Got Response statusCode: ${initObject.statusCode}`);
-        console.log(`Got Response headers: ${initObject.headers}`);
-        // console.log(`Got Response whole object: ${initObject}`);
+    var defaultQuery = 'https://api.magicthegathering.io/v1/cards?name=ajani';
+    https.get(defaultQuery, function(individualCardObject) {
+        console.log(`Got Response statusCode: ${individualCardObject.statusCode}`);
+        console.log(`Got Response headers: ${individualCardObject.headers}`);
+        // console.log(`Got Response whole object: ${individualCardObject}`);
         var string = '';
 
-        initObject.on('data', function(data) {
+        individualCardObject.on('data', function(data) {
             string += data;
         });
 
-        initObject.on('end', function() {
+        individualCardObject.on('end', function() {
             // console.log(string);
+            // returns content-type text/html
             res.send(string);
         });
 
     }).on('error', function(error) {
         console.log(error);
     });
-    // res.send(res);
-});
+}); // end individual card search
 
 var server = app.listen(3000, function() {
     var port = server.address().port;

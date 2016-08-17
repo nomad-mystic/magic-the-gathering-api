@@ -8,7 +8,7 @@ export let landingPage = () => {
     // building table for on init load
 
         let getInitData = () => {
-            getURLPromise('/data').then((response) => {
+            getURLPromise('/allSets').then((response) => {
                 // console.log(response);
                 if (response) {
                     buildInitTable(response);

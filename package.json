@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "babel": "babel --preset es2015 src/js/main.js -o build/js/main.bundle.js",
-    "test": "mocha --compilers js:babel-register --require babel-polyfill",
+    "test": "mocha -w --compilers js:babel-register --require babel-polyfill",
     "webpack": "webpack -w"
   },
   "repository": {
