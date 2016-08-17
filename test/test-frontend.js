@@ -20,7 +20,7 @@ describe('front-end tests', () => {
     describe('should pass for landing page', () => {
         // base tests for front-end
         it('File should exist', () => {
-            chai.expect(landingPage).exist;
+            chai.expect(landingPage).exist();
         });
 
         it('it will return a number -1', () => {
@@ -31,6 +31,5 @@ describe('front-end tests', () => {
              */
             chai.expect(testing(4)).to.equal(3);
         });
-
     }); // landing
 }); // front-end

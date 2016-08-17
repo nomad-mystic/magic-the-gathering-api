@@ -22,26 +22,27 @@ var util = require('gulp-util');
 
 // compile from ES6 to ES5
 gulp.task('babel', () => {
-   // gulp.src('./src/js/*.js')
-   //     .pipe(sourcemaps.init())
-   //     .pipe(babel({
-   //         presets: ['es2015'],
-   //         plugins: ['transform-runtime']
-   //     }))
-   //     .pipe(jslint())
-   //     // .pipe(jslint.reporter('default', errorsOnly))
-   //     .pipe(concat('main.js'))
-   //     .pipe(sourcemaps.write('.'))
-   //     .pipe(gulp.dest('./build/js'));
-    var bundler = browserify('src/app.js');
-    bundler.transform(babelify);
+    gulp.src('./src/js/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015'],
+            plugins: ['transform-runtime']
+        }))
+        .pipe(jslint())
+        // .pipe(jslint.reporter('default', errorsOnly))
+        .pipe(concat('main.js'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./build/js'));
 
-    bundler.bundle()
-        .on('error', function (err) { console.error(err); })
-        .pipe(source('app.js'))
-        .pipe(buffer())
-        .pipe(uglify()) // Use any gulp plugins you want now
-        .pipe(gulp.dest('dist'));
+    // var bundler = browserify('src/app.js');
+    // bundler.transform(babelify);
+    //
+    // bundler.bundle()
+    //     .on('error', function (err) { console.error(err); })
+    //     .pipe(source('app.js'))
+    //     .pipe(buffer())
+    //     .pipe(uglify()) // Use any gulp plugins you want now
+    //     .pipe(gulp.dest('dist'));
 });
 
 // css tasks
